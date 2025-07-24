@@ -17,7 +17,7 @@ export async function createOnlineOrder(shippingAddress, { cartId }) {
   try {
     const options = {
       method: "POST",
-      url: `orders/checkout-session/${cartId}?url=http://localhost:5173`,
+      url: `orders/checkout-session/${cartId}?url=${window.location.origin}`,
       data: shippingAddress,
     };
     const response = await apiclinet.request(options);
