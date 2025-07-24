@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+  --font-poppins: "Poppins", sans-serif;
+  --animate-slide-in: slide-in 0.5s ease-out forwards;
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply font-poppins;
+    @apply text-gray-700;
+  }
+  span,
+  a {
+    @apply inline-block;
+  }
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+  p {
+    @apply text-gray-600 text-sm;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2;
+  }
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+  }
+  .btn-outline {
+    @apply border border-primary-600  bg-white hover:bg-primary-50;
+  }
+  .form-control {
+    @apply w-full px-3 py-2  border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400;
+  }
+  .text-md {
+    @apply text-[15px];
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply size-10! rounded-full bg-primary-400/45  shadow-lg after:text-lg!  after:text-white! hover:bg-primary-400/70 transition-colors duration-200;
+}
+.swiper-pagination-bullet-active {
+  @apply w-5! bg-white! rounded-full!;
+}
+.image-gallery-slide img {
+  @apply h-80 w-full object-cover mb-1.5;
+}
+.image-gallery-thumbnail img {
+  @apply h-16 w-full object-contain;
+}

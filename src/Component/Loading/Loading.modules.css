@@ -1,0 +1,51 @@
+/* Cart Top Animation */
+.animate-cart-top {
+  animation: cartTop 2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+@keyframes cartTop {
+  0% { stroke-dashoffset: -338; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 338; }
+}
+/* Wheel 1 Animation */
+.animate-cart-wheel1 {
+  animation: cartWheel1 2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+@keyframes cartWheel1 {
+  0% { transform: rotate(-90deg); }
+  100% { transform: rotate(990deg); }
+}
+/* Wheel 2 Animation */
+.animate-cart-wheel2 {
+  animation: cartWheel2 2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+@keyframes cartWheel2 {
+  0% { transform: rotate(90deg); }
+  100% { transform: rotate(1170deg); }
+}
+/* Wheel Stroke Animation */
+.animate-cart-wheel-stroke {
+  animation: cartWheelStroke 2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+@keyframes cartWheelStroke {
+  0%, 100% { stroke-dashoffset: 81.68; }
+  50% { stroke-dashoffset: 40.84; }
+}
+/* Fade Message Animation */
+.animate-fade-msg {
+  animation: fadeMsg 14s linear forwards;
+}
+.animate-fade-msg-delay {
+  animation: fadeMsgReverse 14s linear forwards;
+  animation-delay: 14s;
+  visibility: hidden;
+}
+@keyframes fadeMsg {
+  0% { opacity: 1; visibility: visible; }
+  99.9% { opacity: 0; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+@keyframes fadeMsgReverse {
+  0% { opacity: 0; visibility: hidden; }
+  100% { opacity: 1; visibility: visible; }
+}
