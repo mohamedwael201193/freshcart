@@ -49,15 +49,12 @@ function CheckOut() {
       const shippingAddress = {
         shippingAddress: values,
       };
-
       const response = await createOnlineOrder(shippingAddress, { cartId });
-
-      if (response.success) {
-        toast.success("Order created successfully");
-
-        // Redirect to Stripe Checkout
-        window.location.href =
-          "https://checkout.stripe.com/c/pay/cs_test_a15yrEesrQEMWKNR2agnmS6pjMutjgAeTHSgO47pQjeelZob6uIL0OvxSY#fidkdWxOYHwnPyd1blpxYHZxWjA0SHViYl1ANVYyU2pOX2hVVW9ASmZBUElpa2FLVnBUQGo2UFduUEhIXHx9aEhjanBGZ1NxZ3RKNVVtXWxcSTJ8Qzx2aWZkUEBpMXJCXVRHTkIxZzBSZmhENTUxYHVKMUpQVycpJ2N3amhWYHdzYHcnP3F3cGApJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl";
+      console.log(response);
+      if (response.data && response.data.session && response.data.session.url) {
+        window.location.href = response.data.session.url; 
+      } else {
+        toast.error("Failed to get payment URL. Please try again.");
       }
     } catch (error) {
       console.error("Order creation failed:", error);
